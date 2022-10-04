@@ -1,5 +1,5 @@
 # otus-cpp-basics
-_That's a study repository_
+**That's a study repository for Otus course _C++ Developer. Basic_**
 - Test workflow
 - Study tasks
 - Final project
