@@ -1,4 +1,4 @@
-# Install script for directory: C:/OTUS/Basic/otus-cpp-basics/hello_world
+# Install script for directory: C:/OTUS/otus-cpp-basics/hello_world
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/OTUS/Basic/otus-cpp-basics/hello_world/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/OTUS/otus-cpp-basics/hello_world/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
