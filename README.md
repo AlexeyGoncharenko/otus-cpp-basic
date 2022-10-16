@@ -6,7 +6,7 @@
 ```C++
     #include <iostream>
     int main(int argc, char* argv[]) {
-      std::cout << "Hello C++ World!" << std::endl;
+      std::cout << "Hello, C++ World!" << std::endl;
       return EXIT_SUCCESS;
     }
 ```
