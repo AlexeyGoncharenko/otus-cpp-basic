@@ -12,9 +12,8 @@ int main() {
 	return 0;
 }
 double power(double base, int exp) {
-	double 	eps = 1e-2,
-			result = 1.0;
-	if(abs(0-base)<=eps){
+	double result = 1.0;
+	if(fabs(0-base)<=std::numeric_limits<double>::epsilon()){
 		return 0;
 	}
 	else if(exp==0){
