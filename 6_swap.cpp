@@ -2,7 +2,7 @@
 // pass parameters by reference to swap function
 
 #include <iostream>
-
+#include <cstdlib>
 void swap(int &a, int &b) {
     int t = a;
     a = b;
