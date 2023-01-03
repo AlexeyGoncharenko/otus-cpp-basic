@@ -13,11 +13,11 @@ int main() {
 }
 double power(double base, int exp) {
 	double result = 1.0;
-	if(fabs(0-base)<=std::numeric_limits<double>::epsilon()){
-		return 0;
+	if(fabs(0 - base) <= std::numeric_limits<double>::epsilon()){
+		return 0.0;
 	}
-	else if(exp==0){
-		return 1;
+	else if(exp == 0){
+		return 1.0;
 	}
 	else {
 		for (unsigned int i = 0; i < abs(exp); ++i) {

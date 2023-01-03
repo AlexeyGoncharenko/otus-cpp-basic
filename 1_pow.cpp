@@ -32,7 +32,7 @@ bool test_pow(double base, int exp) {
 	std::cout << std::setprecision(10) << "Testing pow(" << base << ", " << exp << ")\t";
 	double expected = std::pow(base, exp);
 	double actual = pow(base, exp);
-
+	std::cout << "Expected=" << expected << " Actual=" << actual << std::endl;
 	if (is_close(expected, actual)) {
 		std::cout << "OK\n";
 		return true;
