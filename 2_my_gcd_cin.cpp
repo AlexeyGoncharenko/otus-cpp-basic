@@ -12,9 +12,10 @@ int main(int argc, char* argv[]){
         a = std::atoi(argv[1]);
         b = std::atoi(argv[2]);
     }
-    result = gcd(std::abs(a), std::abs(b));
+    result = gcd(a, b);
     if (result == -1) {
         std::cerr << "Incorrect input data. Condition a > b > 0. \tTry again" << std::endl;
+        return result;
     }
     else {
         std::cout << "Greatest Common Divisor for (a, b) is " << result << std::endl;
@@ -27,7 +28,7 @@ int main(int argc, char* argv[]){
 /// @return GCD result
 int gcd(int a, int b){
     int q, i, r = 1;
-    if (a && b > 0){ // Condition a > b > 0
+    if (a && b > 0){
         while(r != 0){
             for(i = 1; i * b <= a; i++){}
             q = i == 1 ? i : --i;
