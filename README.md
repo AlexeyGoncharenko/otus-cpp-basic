@@ -4,8 +4,8 @@ Study repository for OTUS [C++ Developer.Basic](https://otus.ru/lessons/cpp-basi
 - Study tasks
 - Final project
 
-| № |         Директория          |         Описание                                                                                           |
-| --| --------------------------- |------------------------------------------------------------------------------------------------------------|
-| 1 |[hello_cpp_world](https://github.com/AlexeyGoncharenko/otus-cpp-basics/tree/hello_world) | Простая реализация Hello world app. Описание выбранной схемы для локальной сборки |
-| 2 |[task2](/../main/assets/images/hello_world) | задание 2                                                                                   |
-| 3 |[task3](/../main/assets/images/hello_world) | задание 3                                                                                   |
+| № |         Path          |     Description     |
+| --| ----------------------|---------------------|
+| 1 |[hello_world](https://github.com/AlexeyGoncharenko/otus-cpp-basics/tree/hello_world) | Пишем свой “Hello, World". Настройка локального окружения для дальнейшей работы |
+| 2 |[guess_number](there_is_some_link) | Модульность. Линковка. Игра «угадай число» с таблицей рекордов |
+| 3 |[engineering_calc](there_is_some_link) | Структуры и классы. Инженерный калькулятор |
