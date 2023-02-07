@@ -1,5 +1,5 @@
 # otus-cpp-basics
-Study repository for OTUS [C++ Developer.Basic](https://otus.ru/lessons/cpp-basic/) course
+OTUS [C++ Developer.Basic](https://otus.ru/lessons/cpp-basic/) course
 - Test workflow
 - Study tasks
 - Final project
