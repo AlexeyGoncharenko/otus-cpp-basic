@@ -43,7 +43,6 @@ if (MSVC)
 #	)
 endif()
 
-
 add_executable(
 	translation_units
 	translation_unit1.cpp     # 2 TU 
@@ -71,7 +70,7 @@ set_target_properties(static_library_usage PROPERTIES
 target_include_directories(
 	static_library_usage
 	PRIVATE
-	${CMAKE_SOURCE_DIR}/static_library
+	${CMAKE_SOURCE_DIR}/static_library # указание путей поиска по умолчанию
 )
 target_link_libraries(
 	static_library_usage
@@ -90,7 +89,7 @@ set_target_properties(dynamic_library_usage PROPERTIES
 target_include_directories(
 	dynamic_library_usage
 	PRIVATE
-	${CMAKE_SOURCE_DIR}/dynamic_library
+	${CMAKE_SOURCE_DIR}/dynamic_library # указание путей поиска по умолчанию
 )
 target_link_libraries(
 	dynamic_library_usage

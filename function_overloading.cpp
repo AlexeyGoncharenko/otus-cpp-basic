@@ -10,7 +10,6 @@
 // ("11.22", '.') -> ["11", "22"]
 std::vector<std::string> split(const std::string &str, char delimiter) {
 	std::vector<std::string> r;
-
 	std::string::size_type start = 0;
 	std::string::size_type stop = str.find_first_of(delimiter);
 	while(stop != std::string::npos) {
@@ -46,22 +45,15 @@ void split_example() {
 	const char * c_str = "Hello, World! Nice to meet you!";
 	std::vector<std::string> tokens2 = split(c_str, ' ');
 
-	split(c_str, ' ');
+	//split(c_str, ' ');
 	
 	std::cout << "c_str tokens:" << std::endl;
 	for(const auto& t : tokens2) {
 		std::cout << t << std::endl;
 	}
 	std::cout << std::endl;
-
 	std::cout << std::endl;
 }
-
-
-
-
-
-
 
 void func() {
 	std::cout << "func without args" << std::endl;
@@ -80,9 +72,12 @@ void func(int arg1, float arg2) {
 }
 
 // Ooops!
+// void func(float arg1, float arg2) {
+// 	std::cout << "func with two float arg" << std::endl;
+// }
+
 // void func(float arg1, float arg2, const char * arg3 = nullptr) {
-// 	std::cout << "func with one int arg,"
-// 		" one float arg "
+// 	std::cout << "func with two float arg "
 // 		" and one const char * arg with default value" << std::endl;
 // }
 
@@ -90,8 +85,8 @@ void func_example() {
 	func();
 	func(42);
 	func(42, 3.14f); 
+	// func(3.14f, 3.14f); 
 }
-
 
 int main() {
 	split_example();

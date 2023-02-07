@@ -67,7 +67,7 @@ bool read_write_file_example(std::fstream& file) {
 	file << "some other string" << std::endl;
 
 	// file.flush(); // It is not required
-	// file.seekg(0); // This is required! :)
+	 file.seekg(0); // This is required! :)
 
 	int i_value = 0;
 	file >> i_value;
@@ -75,11 +75,8 @@ bool read_write_file_example(std::fstream& file) {
 	file >> s_value;
 	float f_value = 0.f;
 	file >> f_value;
+	
 	std::string other_s_value;
-	// file >> other_s_value;
-
-	// file.seekg(pos);
-
 	file.ignore();
 	std::getline(file, other_s_value);
 
@@ -111,14 +108,13 @@ int main() {
 	std::ifstream i_file{filename};
 	success = read_from_file(i_file);
 
-		if (success) {
+	if (success) {
 		std::cout << "Read from file succeeded!" << std::endl; 
 	}
 	else {
 		std::cout << "Read from file failed!" << std::endl;
 		return -1;
 	}
-
 
 	const std::string filename2 = "testFile2.txt";
 	std::fstream io_file{filename2, std::ios_base::in | std::ios_base::out | std::fstream::app};
