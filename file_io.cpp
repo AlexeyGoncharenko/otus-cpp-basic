@@ -32,7 +32,7 @@ bool read_from_file(std::ifstream& file) {
 		return false;
 	}
 
-	// We can't read to constans... So, we need variables
+	// We can't read to constants... So, we need variables
 	float f_value = 0;
 	std::string str_value;
 	int i_value = 0;
@@ -77,7 +77,7 @@ bool read_write_file_example(std::fstream& file) {
 	file >> f_value;
 	
 	std::string other_s_value;
-	file.ignore();
+	file.ignore(); // This is required! :)
 	std::getline(file, other_s_value);
 
 	std::cout << "i_value = " << i_value << std::endl;

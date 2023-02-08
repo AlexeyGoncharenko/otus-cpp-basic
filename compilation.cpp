@@ -5,12 +5,10 @@
 #define MY_SUPER_MAX(a, b) ((a<b)?b:a)
 #define NAME_AND_VALUE(variable) (std::cout << "variable = " << variable << std::endl)
 
-void some_function(int) {
-	
+void some_function(int) {	
 }
 
 void some_other_function(float) {
-
 }
 
 int main() {
@@ -25,6 +23,6 @@ int main() {
 	//int max2 = MY_SUPER_MAX(1, "hello!"); // Ooops
 
 	NAME_AND_VALUE(max);
-
+	
 	return 0;
 }

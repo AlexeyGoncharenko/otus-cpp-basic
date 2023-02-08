@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(04.linkage
-		DESCRIPTION "test static library linking")
+		DESCRIPTION "static library linking")
 
 add_library(
 	datetime
@@ -10,5 +10,4 @@ add_library(
 
 	datetime.cpp
 	datetime.h
-	# ... 
 )

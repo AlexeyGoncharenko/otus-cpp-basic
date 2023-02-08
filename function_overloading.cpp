@@ -2,25 +2,16 @@
 #include <string>
 #include <vector>
 
-// ("",  '.') -> [""]
-// ("11", '.') -> ["11"]
-// ("..", '.') -> ["", "", ""]
-// ("11.", '.') -> ["11", ""]
-// (".11", '.') -> ["", "11"]
-// ("11.22", '.') -> ["11", "22"]
 std::vector<std::string> split(const std::string &str, char delimiter) {
 	std::vector<std::string> r;
 	std::string::size_type start = 0;
 	std::string::size_type stop = str.find_first_of(delimiter);
 	while(stop != std::string::npos) {
 		r.push_back(str.substr(start, stop - start));
-
 		start = stop + 1;
 		stop = str.find_first_of(delimiter, start);
 	}
-
 	r.push_back(str.substr(start));
-
 	return r;
 }
 
@@ -45,8 +36,6 @@ void split_example() {
 	const char * c_str = "Hello, World! Nice to meet you!";
 	std::vector<std::string> tokens2 = split(c_str, ' ');
 
-	//split(c_str, ' ');
-	
 	std::cout << "c_str tokens:" << std::endl;
 	for(const auto& t : tokens2) {
 		std::cout << t << std::endl;
@@ -90,8 +79,6 @@ void func_example() {
 
 int main() {
 	split_example();
-
 	func_example();
-
 	return 0;
 }
