@@ -2,9 +2,6 @@
 ### OTUS [C++ Developer.Basic](https://otus.ru/lessons/cpp-basic/) course
 ![GitHub last commit](https://img.shields.io/github/last-commit/AlexeyGoncharenko/otus-cpp-basics?style=flat)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/AlexeyGoncharenko/otus-cpp-basics)
-- Test workflow
-- Study tasks
-- Final project
 
 | № |         Path          |     Description     |
 | --| ----------------------|---------------------|
