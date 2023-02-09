@@ -5,6 +5,9 @@ project(guess_number)
 add_executable(
 	guess_number
 	main.cpp
+	get_magic_number.cpp
+	check_value.cpp
+	high_scores.cpp
 )
 set_target_properties(guess_number PROPERTIES
 	CXX_STANDARD 17
