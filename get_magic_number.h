@@ -1,0 +1,1 @@
+int get_magic_number(int);
