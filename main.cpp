@@ -4,7 +4,6 @@
 #include "high_scores.h"
 
 void play(){
-    // здесь необходимо задать форматированое выравнивание в консоли    
     int magic_number;
     user u;
     std::cout << "Hi! Enter your name, please: ";
@@ -20,6 +19,5 @@ void play(){
 int main (int argc, char* argv[]){
     std::cout << "-=Guess Number Game=-" << std::endl;
     play();
-    std::system("pause");
     return 0;
 }
