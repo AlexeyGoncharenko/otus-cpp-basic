@@ -14,10 +14,11 @@ void play(){
     }
     magic_number = get_magic_number(u.max_value);
     check_value(magic_number, u);
+    
 }
 
 int main (int argc, char* argv[]){
-    std::cout << "-=Guess Number Game=-" << std::endl;
+    std::cout << "-=Guess The Number Game=-" << std::endl;
     play();
     return 0;
 }
