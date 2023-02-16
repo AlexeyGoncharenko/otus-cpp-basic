@@ -2,6 +2,7 @@
 
 void check_value(int magic_number, user& u) {
     int answer;
+    
     while (true) {
         std::cout << "Enter your guess [0.." << u.max_value << "]: "; 
         std::cin >> answer;
