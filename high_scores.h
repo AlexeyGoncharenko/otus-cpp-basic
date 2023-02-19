@@ -1,2 +1,3 @@
 #include "check_value.h"
-bool high_scores(const user, const std::string);
+#include <vector>
+bool high_scores(const user, const std::string&, const uint32_t);
