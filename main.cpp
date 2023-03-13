@@ -18,7 +18,7 @@ struct args_list {
         args_list::args_list(std::string n, int v = 0): name(n), value(v){}
 
         bool args_list::operator==(args_list& a) {
-            if (this->name == a.name) return true;
+            if (this->name == a.name) return true; // to compare only name
             else return false;
         }
 
