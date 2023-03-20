@@ -1,5 +1,7 @@
 # otus-cpp-basics
 ## Home task 3: Guess The Number Game
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/AlexeyGoncharenko/otus-cpp-basics/guess_number)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/AlexeyGoncharenko/otus-cpp-basics/guess_number)
 1. создать приложение «угадай число»
 2. для сборки использовать CMake
 3. выгрузить результат в свой аккаунт на github.com
