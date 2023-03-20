@@ -38,7 +38,7 @@ int arg_is_available(args_list x, std::vector<args_list> &p) {
 
 void parse_args(int argc, char* argv[], std::vector<args_list> &p){
     args_list tmp;
-    for (size_t i = 0; i < argc; ) {
+    for (int i = 0; i < argc; ) {
         if (std::atoi(argv[i]) == 0) { // is param_name
             if ((i + 1 < argc) && std::atoi(argv[i + 1]) != 0) { // is param_value
                 tmp.name = argv[i];
