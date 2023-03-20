@@ -5,8 +5,12 @@
 #include "high_scores.h"
 
 bool write_to_file(const user u, const std::string& file_name) {	
-	std::fstream o_file{file_name, std::ios_base::in};
-
+	// to use a file stream in read/write mode, ensure the file exists first.
+	std::fstream o_file{file_name, std::ios_base::out | std::ios_base::app};
+	o_file.close();
+	o_file.open(file_name, std::ios_base::in);
+	//
+	
 	if (o_file.is_open()) {
 		std::stringstream ss;
 		ss << u.name << " " << u.tries_cnt;
@@ -40,16 +44,14 @@ bool write_to_file(const user u, const std::string& file_name) {
 			o_file << l << std::endl;
 		}
 
-		o_file.close(); // Close file to flush all data
 		return true;
 	} else {
-		o_file.close();
 		return false;
     }
 }
 
 bool read_from_file(const std::string& file_name) {
-    std::ifstream i_file{file_name};
+    std::fstream i_file{file_name, std::ios_base::in};
 	if (i_file.is_open()) {
 		std::string str, line;
 
@@ -58,11 +60,9 @@ bool read_from_file(const std::string& file_name) {
 			str.append(line.append("\n"));
 		}
 
-		std::cout << str;	
-		i_file.close();
+		std::cout << str;
         return true;
 	} else {
-		i_file.close();
 		return false;
     }
 }

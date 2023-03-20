@@ -3,21 +3,19 @@
 #include "check_value.h"
 #include "high_scores.h"
 
-// alternative implementation
-// std::map<std::string, std::any> args_list;
 struct args_list {
     public:
         std::string name;
         int value;
 
-        args_list::args_list() {
+        args_list() {
             name = "";
             value = 0;
         }
 
-        args_list::args_list(std::string n, int v = 0): name(n), value(v){}
+        args_list(std::string n, int v = 0): name(n), value(v){}
 
-        bool args_list::operator==(args_list& a) {
+        bool operator==(args_list& a) {
             if (this->name == a.name) return true; // to compare only name
             else return false;
         }
@@ -29,7 +27,7 @@ struct args_list {
 };
 
 int arg_is_available(args_list x, std::vector<args_list> &p) {
-   int size = p.size();
+   int size = (int)p.size();
     for (int i = 0; i < size; i++) {
         if (p[i] == x) {
            return i; // return index of appropriate parameter 
@@ -63,24 +61,23 @@ bool play(std::vector<args_list> &p){
     int magic_number, idx;
     user u;
 
-    // check arguments: table
+    // check arguments: -table
     idx = arg_is_available(args_list("-table"), p);
     if (idx != -1) {
         result = high_scores(u, file_name, 1);
         return result;
     }
  
-     // -max and -level mutually exclusive
+     // -max and -level arguments mutually exclusive
     if (arg_is_available(args_list("-max"), p) != -1 && arg_is_available(args_list("-level"), p) != -1) {
         return result;
     }
 
-    // check arguments: level && max
+    // check arguments: -level && -max
     std::string max_value_str; // to fix infinite loop if std::cin trying to set symbol data to int
     std::cout << "Hi! Enter your name: ";
     std::cin >> u.name;
 
-    // check -level argument
     idx = arg_is_available(args_list("-level"), p);
     if (idx != -1) {
         switch (p[idx].value)
@@ -104,7 +101,7 @@ bool play(std::vector<args_list> &p){
 
         return result;
 
-    } else { // else check -max argument
+    } else {
         idx = arg_is_available(args_list("-max"), p);
         if (idx != -1) {
             u.max_value = p[idx].value;
