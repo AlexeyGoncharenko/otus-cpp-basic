@@ -1,6 +1,6 @@
 # otus-cpp-basics
 ### OTUS [C++ Developer.Basic](https://otus.ru/lessons/cpp-basic/) course
-![GitHub last commit](https://img.shields.io/github/last-commit/AlexeyGoncharenko/otus-cpp-basics?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/AlexeyGoncharenko/otus-cpp-basics)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/AlexeyGoncharenko/otus-cpp-basics)
 
 | № |         Path          |     Description     |
