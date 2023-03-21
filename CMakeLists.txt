@@ -1,10 +1,35 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.5)
 
-project(CMakeExaples)
+project(08.Classes)
 
-add_subdirectory(example1)
-add_subdirectory(example2)
-add_subdirectory(example3)
-add_subdirectory(example4)
-# add_subdirectory(example5)
-# add_subdirectory(example6)
+add_executable(structure structure.cpp
+	netpbm.cpp)
+set_target_properties(structure PROPERTIES
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED ON
+)
+
+add_executable(structure_stream structure_stream.cpp)
+set_target_properties(structure_stream PROPERTIES
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED ON
+)
+
+add_executable(structure_operators structure_operators.cpp)
+set_target_properties(structure_operators PROPERTIES
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED ON
+)
+
+add_executable(structure_nested structure_nested.cpp)
+set_target_properties(structure_nested PROPERTIES
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED ON
+)
+
+add_executable(classes classes.cpp)
+set_target_properties(classes PROPERTIES
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED ON
+)
+
