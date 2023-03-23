@@ -4,26 +4,26 @@
 #include <iomanip>
 #include "high_scores.h"
 
-bool write_to_file(const user u, const std::string& file_name) {	
-	// to use a file stream in read/write mode, ensure the file exists first.
+bool write_to_file(const player &player, const std::string& file_name) {	
+	// to use a file stream in read/write mode, ensure the file exists first
 	std::fstream o_file{file_name, std::ios_base::out | std::ios_base::app};
 	o_file.close();
 	o_file.open(file_name, std::ios_base::in);
 	//
 	
-	if (o_file.is_open()) {
-		std::stringstream ss;
-		ss << u.name << " " << u.tries_cnt;
+	// read file first
+	if (o_file.is_open()) {	
+		// find and replace
+		o_file.seekg(0); 
+		bool is_found = false;
 		std::string line;
 		std::vector<std::string> lines;
+		std::stringstream ss;
+		ss << player.name << " " << player.tries_cnt;
 		
-		// find and replace
-		bool is_found = false;
-		o_file.seekg(0); 
-		
-		while (std::getline(o_file, line)) {
-			if (line.find(u.name) != std::string::npos) {
-				if (std::atoi((line.substr((u.name).length() + 1, line.length())).c_str()) > u.tries_cnt) {
+		while (std::getline(o_file, line)) { // find exist player
+			if (line.find(player.name) != std::string::npos) {
+				if (std::atoi((line.substr((player.name).length() + 1, line.length())).c_str()) > player.tries_cnt) {
 					line.replace(0, line.size(), ss.str());
 				}
 				is_found = true;
@@ -31,13 +31,12 @@ bool write_to_file(const user u, const std::string& file_name) {
 			lines.push_back(line);
 		}
 		
-		if (!is_found) {
+		if (!is_found) { // add new player
 			lines.push_back(ss.str());
 		}
-		
 		o_file.close();
 
-		// rewrite file
+		// rewrite file than
 		o_file.open(file_name, std::ios_base::out | std::ios_base::trunc);
 		
 		for (const auto& l: lines) {
@@ -60,19 +59,19 @@ bool read_from_file(const std::string& file_name) {
 			str.append(line.append("\n"));
 		}
 
-		std::cout << str;
+		std::cout << str.c_str();
         return true;
 	} else {
 		return false;
     }
 }
 
-bool high_scores(const user u, const std::string& file_name, const uint32_t openMode) {
+bool high_scores(const player &player, const std::string& file_name, const uint32_t open_mode) {
 	bool result = true;
 
-	switch (openMode) {
+	switch (open_mode) {
 		case 0: // write and read
-			if (!write_to_file(u, file_name)) {
+			if (!write_to_file(player, file_name)) {
 				std::cout << "Error! Write data to " << file_name.c_str() << std::endl;
 				result = false;
 			}

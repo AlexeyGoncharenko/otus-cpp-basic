@@ -3,19 +3,19 @@
 #include "check_value.h"
 #include "high_scores.h"
 
-struct args_list {
+struct arg {
     public:
         std::string name;
         int value;
 
-        args_list() {
+        arg() {
             name = "";
             value = 0;
         }
 
-        args_list(std::string n, int v = 0): name(n), value(v){}
+        arg(std::string n, int v = 0): name(n), value(v){}
 
-        bool operator==(args_list& a) {
+        bool operator==(const arg& a) const {
             if (this->name == a.name) return true; // to compare only name
             else return false;
         }
@@ -26,108 +26,108 @@ struct args_list {
         }
 };
 
-int arg_is_available(args_list x, std::vector<args_list> &p) {
-   int size = (int)p.size();
+int arg_is_available(const arg x, const std::vector<arg> &args_list) {
+   int size = (int)args_list.size();
     for (int i = 0; i < size; i++) {
-        if (p[i] == x) {
+        if (args_list[i] == x) {
            return i; // return index of appropriate parameter 
         }
     }
     return -1;
 }
 
-void parse_args(int argc, char* argv[], std::vector<args_list> &p){
-    args_list tmp;
+std::vector<arg> parse_args(int argc, char* argv[]){
+    arg tmp;
+    std::vector<arg> args_list;
     for (int i = 0; i < argc; ) {
         if (std::atoi(argv[i]) == 0) { // is param_name
             if ((i + 1 < argc) && std::atoi(argv[i + 1]) != 0) { // is param_value
                 tmp.name = argv[i];
                 tmp.value = std::atoi(argv[i + 1]);
-                p.push_back(tmp);
+                args_list.push_back(tmp);
                 i += 2; // next param
             } else { // incomplete pair or single one
                 tmp.name = argv[i];
                 tmp.value = 0;
-                p.push_back(tmp);
+                args_list.push_back(tmp);
                 i++; 
             }
         }
     }
+    return args_list;
 }
 
-bool play(std::vector<args_list> &p){
+bool play(const std::vector<arg> &args_list){
     std::string file_name ="high_scores.log";
     bool result = false;
     int magic_number, idx;
-    user u;
+    player player;
 
     // check arguments: -table
-    idx = arg_is_available(args_list("-table"), p);
+    idx = arg_is_available(arg("-table"), args_list);
     if (idx != -1) {
-        result = high_scores(u, file_name, 1);
+        result = high_scores(player, file_name, 1);
         return result;
     }
  
      // -max and -level arguments mutually exclusive
-    if (arg_is_available(args_list("-max"), p) != -1 && arg_is_available(args_list("-level"), p) != -1) {
+    if (arg_is_available(arg("-max"), args_list) != -1 && arg_is_available(arg("-level"), args_list) != -1) {
         return result;
     }
 
     // check arguments: -level && -max
     std::string max_value_str; // to fix infinite loop if std::cin trying to set symbol data to int
     std::cout << "Hi! Enter your name: ";
-    std::cin >> u.name;
+    std::cin >> player.name;
 
-    idx = arg_is_available(args_list("-level"), p);
+    idx = arg_is_available(arg("-level"), args_list);
     if (idx != -1) {
-        switch (p[idx].value)
+        switch (args_list[idx].value)
         {
             case 1: // u.max_value=[0..9] 
-                u.max_value = 10;
+                player.max_value = 10;
                 break;
             case 2: // u.max_value=[0..49] 
-                u.max_value = 50;
+                player.max_value = 50;
                 break;
             case 3: // u.max_value=[0..99] 
-                u.max_value = 100;
+                player.max_value = 100;
                 break;
             default:
                 return result;
         }
 
-        magic_number = get_magic_number(u.max_value);
-        check_value(magic_number, u);
-        result = high_scores(u, file_name, 0);
+        magic_number = get_magic_number(player.max_value);
+        check_value(magic_number, player);
+        result = high_scores(player, file_name, 0);
 
         return result;
 
     } else {
-        idx = arg_is_available(args_list("-max"), p);
+        idx = arg_is_available(arg("-max"), args_list);
         if (idx != -1) {
-            u.max_value = p[idx].value;
+            player.max_value = args_list[idx].value;
         } else {
             do {
                 std::cout << "Enter guess number max value: ";
                 std::cin >> max_value_str;
-                u.max_value = std::atoi(max_value_str.c_str());
-            } while (u.max_value <= 0); 
+                player.max_value = std::atoi(max_value_str.c_str());
+            } while (player.max_value <= 0); 
         }
       
-        magic_number = get_magic_number(u.max_value);
-        check_value(magic_number, u);
-        result = high_scores(u, file_name, 0);
+        magic_number = get_magic_number(player.max_value);
+        check_value(magic_number, player);
+        result = high_scores(player, file_name, 0);
 
         return result;
     }
 }
 
 int main (int argc, char* argv[]) {
-    std::cout << "-=Guess The Number Game=-" << std::endl;    
+    std::cout << "-=Guess The Number Game=-" << std::endl;     
 
-    std::vector<args_list> prms;
-    parse_args(argc, argv, prms);
-
-    if (play(prms)) {
+    std::vector<arg> args_list = parse_args(argc, argv);
+    if (play(args_list)) {
         return 0;
     }else {
         std::cout << "Check correct parameters input\n" << argv[0] << " [-max <int> ] [-level 1..3] [-table]\n[-max] [-level] mutually exclusive" << std::endl;

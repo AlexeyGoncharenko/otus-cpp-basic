@@ -1,1 +1,1 @@
-int get_magic_number(int);
+int get_magic_number(const int max_value);
