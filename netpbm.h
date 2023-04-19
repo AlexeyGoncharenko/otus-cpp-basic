@@ -23,16 +23,6 @@ namespace graphics {
 
 	void put_pixel(char *image, int width, int height, int green, int x, int y);
 
-
-
-
-
-
-
-
-
-
-
 	struct Image {
 		char* buffer;
 		int width;
@@ -44,7 +34,5 @@ namespace graphics {
 	void clear(Image& image);
 
 	void put_pixel(Image& image, int green, int x, int y);
-
-
-
+	
 } // namespace graphics

@@ -52,5 +52,4 @@ namespace graphics {
 		put_pixel(image.buffer, image.width, image.height, green, x, y);
 	}
 
-
 } // namespace graphics

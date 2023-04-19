@@ -38,7 +38,7 @@ namespace motivation_1 {
 		}
 	}
 
-} // motivation
+} // motivation_1
 
 namespace motivation_2 {
 
@@ -89,7 +89,7 @@ namespace motivation_2 {
 		graphics::dump_to_file(output, image, width, height);
 	}
 
-}
+} // motivation_2
 
 namespace structures {
 
@@ -139,9 +139,6 @@ namespace structures {
 		}
 	}
 
-
-
-
 	// struct Image {
 	// 	char* buffer;
 	// 	int width;
@@ -177,20 +174,24 @@ namespace structures {
 
 	}
 
-
 } // namespace structures
+
+	struct my_person{
+		std::string firstname;
+		std::string secondname;
+		int age;
+	};
+
+	std::ostream &operator<<(std::ostream &os, const my_person &person) {
+		os << person.firstname << ' ' << person.secondname << ' ' << person.age;
+		return os;
+	}
 
 int main() {
 
 	// // :: - namespace
 	// // . - member access
-	// // -> - member access for pointers
-
-	// structures::Person person;
-	// person.name;
-
-	// structures::Person* personPtr = &person;
-	// personPtr->name;
+	// // -> - member access for pointers	
 
 	motivation_1::example();
 	motivation_2::example_simple();

@@ -48,7 +48,7 @@ bool operator<(const Person& lhs, const Person& rhs) {
 
 	if (lhs.name < rhs.name)
 		return true;
-	else if (lhs.age > rhs.age)
+	else if (lhs.name > rhs.name)
 		return false;
 
 	if (lhs.surname < rhs.surname)
