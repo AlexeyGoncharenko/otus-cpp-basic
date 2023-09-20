@@ -38,7 +38,6 @@ bool test_pow(double base, int exp) {
 		return true;
 	} else {
 		std::cout << "FAIL\n";
-		std::cout << "expected: " << expected << ", actual: " << actual << "\n";
 		return false;
 	}
 }
