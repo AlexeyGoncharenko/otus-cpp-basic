@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.8) #recommended stanble cmake version 3.8
 project(hello_world CXX) #CXX just point this's the C++ project
 
 set(HEADERS
-    move_me_out.h)
+    move_me_out.hpp)
 
 set(SOURCES 
     hello_world.cpp

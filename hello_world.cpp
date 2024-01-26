@@ -1,5 +1,5 @@
 #include <iostream>
-#include "move_me_out.h"
+#include "move_me_out.hpp"
 
 int main() {
 	std::cout << "Hello, C++ World!" << std::endl;
