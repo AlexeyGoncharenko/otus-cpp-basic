@@ -17,7 +17,7 @@ if(MSVC)
 else()
     target_compile_options(hello_world PUBLIC -Wall -Wextra -Werror -pedantic)
 endif()
-#set_target_properties(hello_world PROPERTIES
-#    CXX_STANDARD 17
-#    CXX_STANDARD_REQUIRED ON
-#)
+# set_target_properties(hello_world PROPERTIES
+#     CXX_STANDARD 17
+#     CXX_STANDARD_REQUIRED ON
+# )
